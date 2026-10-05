@@ -54,6 +54,17 @@ La documentación interactiva está disponible en `http://127.0.0.1:8001/docs` c
 | `PATCH` | `/users/{username}/active` | Actualiza el estado activo |
 | `DELETE` | `/users/{username}` | Elimina un usuario |
 | `GET` | `/roles` | Lista roles |
+| `POST` | `/email` | Envía un correo electrónico |
+
+El endpoint `POST /email` recibe un JSON con `to`, `subject` y `html`. Por ejemplo:
+
+```json
+{
+  "to": "destinatario@example.com",
+  "subject": "Asunto del correo",
+  "html": "<p>Contenido del correo</p>"
+}
+```
 
 ## Docker Compose
 

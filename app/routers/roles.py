@@ -7,7 +7,10 @@ from app.models.schemas import RoleOut
 router = APIRouter(prefix="/roles", tags=["Roles"])
 
 
+def get_role_service(conn=Depends(get_db)) -> RoleService:
+    return RoleService(conn)
+
+
 @router.get("", response_model=List[RoleOut])
-def list_roles(conn=Depends(get_db)):
-    service = RoleService(conn)
+def list_roles(service: RoleService = Depends(get_role_service)):
     return service.list_roles()

@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.config import settings
-from app.routers import users, roles
+from app.routers import email, users, roles
 from app.database import get_connection
 from app.logging_config import setup_logging
 from loguru import logger
@@ -16,6 +16,7 @@ app = FastAPI(
 # Registrar routers
 app.include_router(users.router)
 app.include_router(roles.router)
+app.include_router(email.router)
 
 
 @app.get("/", tags=["System"])
