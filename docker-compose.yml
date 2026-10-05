@@ -1,0 +1,17 @@
+services:
+  api:
+    build: .
+    container_name: oracle-api
+    ports:
+      - "8000:8000"
+    environment:
+      - ORACLE_USER=MyTestDB
+      - ORACLE_PASSWORD=MyTestDB123
+      - ORACLE_DSN=oracle-free:1521/FREEPDB1
+    networks:
+      - oracle-net
+    restart: unless-stopped
+
+networks:
+  oracle-net:
+    external: true

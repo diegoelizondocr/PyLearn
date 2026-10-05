@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+oracledb
+pydantic
+pydantic-settings
+email-validator
+loguru
+resend
