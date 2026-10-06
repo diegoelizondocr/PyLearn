@@ -24,9 +24,10 @@ La aplicación lee la configuración de Oracle desde variables de entorno o desd
 ORACLE_USER=MyTestDB
 ORACLE_PASSWORD=MyTestDB123
 ORACLE_DSN=localhost:1521/FREEPDB1
+RESEND_API_KEY=your_resend_api_key
 ```
 
-Configura estos valores para que coincidan con tu base de datos. No subas credenciales reales al repositorio.
+Configura estos valores para que coincidan con tu base de datos. `RESEND_API_KEY` es necesaria para enviar correo. No subas credenciales reales al repositorio.
 
 ## Ejecutar y depurar
 

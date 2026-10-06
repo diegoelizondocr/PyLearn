@@ -11,6 +11,9 @@ class EmailService:
     def send_email_new(self, email_data: EmailRequest) -> dict:
         logger.info(f"Enviando correo a: {email_data.to}")
 
+        if not settings.resend_api_key:
+            raise HTTPException(status_code=503, detail="Servicio de correo no configurado")
+
         resend.api_key = settings.resend_api_key
         result = resend.Emails.send({
             "from": settings.resend_from_email,
@@ -27,6 +30,9 @@ class EmailService:
 
     def send_email(self, email_data: EmailRequest) -> dict:
         logger.info(f"Enviando correo a: {email_data.to}")
+
+        if not settings.resend_api_key:
+            raise HTTPException(status_code=503, detail="Servicio de correo no configurado")
 
         url = "https://api.resend.com/emails"
         headers = {
